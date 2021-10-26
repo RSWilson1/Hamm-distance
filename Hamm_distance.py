@@ -1,15 +1,17 @@
 import math
 import argparse
 
-parser = argparse.ArgumentParser(description="Write sequences as text input for the two sequences to compare.")
+parser = argparse.ArgumentParser(
+    description="Write sequences as text input for the two sequences to compare.")
 parser.add_argument('--Sequence_1', '-s1', type=str, 
                     metavar='', required=True, 
                     help='Type in sequence - not FASTA just raw bases.')
 parser.add_argument('--Sequence_2', '-s2', type=str, 
                     metavar='', required=True, 
                     help='Type in sequence - not FASTA just raw bases.')
-parser.add_argument('-F', '--FileMode', action='store_true', 
-                    required=False, help='Set file mode.')
+parser.add_argument('-F', '--FileMode', 
+                    action='store_true', required=False,
+                    help='Set file mode to take .txt files')
 args = parser.parse_args()
 
 def Hamming_calc(input1, input2):
