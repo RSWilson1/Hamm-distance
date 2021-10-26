@@ -4,11 +4,12 @@ import argparse
 parser = argparse.ArgumentParser(description="Write sequences as text input for the two sequences to compare.")
 parser.add_argument('--Sequence_1', '-s1', type=str, 
                     metavar='', required=True, 
-                    help='Type in sequence - not FASTA just raw bases.' )
+                    help='Type in sequence - not FASTA just raw bases.')
 parser.add_argument('--Sequence_2', '-s2', type=str, 
                     metavar='', required=True, 
-                    help='Type in sequence - not FASTA just raw bases.' )
-parser.add_argument('-F', '--FileMode', action='store_true', required=False, help='Set file mode.')
+                    help='Type in sequence - not FASTA just raw bases.')
+parser.add_argument('-F', '--FileMode', action='store_true', 
+                    required=False, help='Set file mode.')
 args = parser.parse_args()
 
 def Hamming_calc(input1, input2):
@@ -24,7 +25,7 @@ def Hamming_calc(input1, input2):
 #This for loop compares the two strings at position loop.
 #and if not the same adds to hamming_distance otherwise continue.
     except Exception as e:
-        print("Error with input, try writing the sequence as raw bases e.g AACGAATT ")
+        print("Error with input, try writing the sequence as raw bases e.g AACGAATT")
 
     else: print(f'The Hamming distance is {Hamming_distance}') #f-string to print results
 
@@ -38,4 +39,6 @@ if __name__ == '__main__':
             print(seq2)
         Hamming_calc(seq1, seq2)
     else:
+        print(args.Sequence_1)
+        print(args.Sequence_2)
         Hamming_calc(args.Sequence_1, args.Sequence_2)
