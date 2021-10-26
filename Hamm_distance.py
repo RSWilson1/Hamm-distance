@@ -1,4 +1,17 @@
+#!usr/bin/env python
+
 import argparse
+
+"""
+ROSALIND
+Counting Point Mutations
+
+This program takes the input of two sequences 
+(either as strings e.g. "ACTG" or text files).
+It then calculates the number of differences 
+between the strings at each position.
+
+"""
 
 parser = argparse.ArgumentParser(
     description="Write sequences as text input for the two sequences to compare.")
@@ -30,7 +43,7 @@ def Hamming_calc(input1, input2):
 
     else: print(f'The Hamming distance is {Hamming_distance}') #f-string to print results
 
-if __name__ == '__main__':
+def main():
     if args.FileMode:
         with open(args.Sequence_1) as f:
             seq1 = f.read().replace('\n', '')
@@ -43,3 +56,6 @@ if __name__ == '__main__':
         print(args.Sequence_1)
         print(args.Sequence_2)
         Hamming_calc(args.Sequence_1, args.Sequence_2)
+
+if __name__ == '__main__':
+    main()
